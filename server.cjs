@@ -1,10 +1,12 @@
 const express=require('express')
+const cors=require('cors')
 const bodyParser = require('body-parser')
 const {ObjectId}=require('mongodb')
 //Importing the required functions from db.cjs
 const { connectTODB, getDB } = require('./db.cjs')
 const app = express ()
 app.use(bodyParser.json())
+app.use(cors())
 let db
 connectTODB(function(error){
     if(error){
